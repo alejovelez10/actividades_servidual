@@ -1,0 +1,53 @@
+# == Schema Information
+#
+# Table name: actvidads
+#
+#  id             :integer          not null, primary key
+#  consecutivo    :integer
+#  tipo           :string
+#  prioridad      :string
+#  responsable_id :integer
+#  nombre         :string
+#  descripcion    :text
+#  anexo          :string
+#  f_entrega      :date
+#  porcentaje     :integer
+#  estado_cierre  :boolean
+#  estado_envio   :boolean
+#  contador       :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  user_id        :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  consecutivo: 1
+  tipo: MyString
+  user_id: MyString
+  prioridad: MyString
+  responsable_id: 1
+  nombre: MyString
+  descripcion: MyText
+  anexo: MyString
+  f_entrega: 2017-02-27
+  porcentaje: 1
+  estado_cierre: false
+  estado_envio: false
+  contador: 1
+
+two:
+  consecutivo: 1
+  tipo: MyString
+  user_id: MyString
+  prioridad: MyString
+  responsable_id: 1
+  nombre: MyString
+  descripcion: MyText
+  anexo: MyString
+  f_entrega: 2017-02-27
+  porcentaje: 1
+  estado_cierre: false
+  estado_envio: false
+  contador: 1

@@ -1,0 +1,35 @@
+# == Schema Information
+#
+# Table name: seguimientos
+#
+#  id           :integer          not null, primary key
+#  user_id      :integer
+#  actividad_id :integer
+#  descripcion  :text
+#  s_cierre     :boolean
+#  porcentaje   :integer
+#  cierre       :boolean
+#  anexo        :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  actividad_id: 1
+  descripcion: MyText
+  s_cierre: false
+  porcentaje: 1
+  cierre: false
+  anexo: MyString
+
+two:
+  user_id: 1
+  actividad_id: 1
+  descripcion: MyText
+  s_cierre: false
+  porcentaje: 1
+  cierre: false
+  anexo: MyString

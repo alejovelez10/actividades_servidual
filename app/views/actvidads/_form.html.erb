@@ -1,0 +1,135 @@
+<%= form_for(actvidad) do |f| %>
+  <% if actvidad.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(actvidad.errors.count, "error") %> prohibited this actvidad from being saved:</h2>
+
+      <ul>
+      <% actvidad.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+<div class="row">
+  <div class="col-md-3">
+    
+  <div class="form-group">
+    <%= f.label :tipo %>
+     <%= f.select 'tipo', options_for_select(["Actividad", "Petición", "Queja", "Reclamo", "Solicitud","Felicitaciones"]), {},{:class => 'form-control'}%>
+  </div>
+  </div>
+  <div class="col-md-3">
+      <div class="form-group">
+    <%= f.label :responsable_id %>
+   <%= f.select :responsable_id,
+   User.all.map { |u| ["#{u.nombres} #{u.apellidos}", u.id] },
+               { include_blank: false },
+               { class: 'form-control chosen-select' }
+%>
+  </div>
+
+  </div>
+ <div class="col-md-6">
+    
+     <div class="form-group">
+               <%= f.label "Otros interesados" %>
+               <%= f.select :user_ids, User.all.collect {|c| ["#{c.nombres} #{c.apellidos}", c.id]}, {prompt: false}, {:multiple => true,class: 'form-control chosen-mselect'} %>
+      </div>
+   </div>
+   </div>
+   <div class="row">
+  <div class="col-md-3">
+    
+  <div class="form-group">
+    <%= f.label :prioridad %>
+     <%= f.select 'prioridad', options_for_select(["Alta", "Media","Baja"]), {},{:class => 'form-control'}%>
+  </div>
+
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+    <%= f.label :f_entrega %>
+    <%= f.date_field :f_entrega, class:"form-control"  %>
+  </div>
+    
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+    <%= f.label :anexo %>
+    <%= f.file_field :anexo , class:"form-control" %>
+  </div>
+  </div>
+    <div class="col-md-6">
+    <div class="form-group">
+    <%= f.label "Nombre de la Actividad" %>
+    <%= f.text_field :nombre, class:"form-control"  %>
+  </div>
+  </div>
+    <div class="col-md-2">
+    
+  <div class="form-group">
+    <%= f.label "Enviar" %>
+    <%= f.check_box :estado_envio, class:"form-control" %>
+  </div>
+  </div>
+ 
+  <div class="col-md-9">
+     <div class="form-group">
+    <%= f.label :descripcion %>
+    <%= f.text_area :descripcion, class: 'ckeditor'  %>
+  </div>
+
+  </div>
+ 
+
+</div>
+
+
+
+  
+
+
+  
+ <%= f.hidden_field :user_id , :value => current_user.id %>
+ 
+  
+
+
+
+
+
+  
+
+
+  
+
+  <div class="actions">
+    <%= f.submit "Guardar",class: "btn btn-primary"  %>
+  </div>
+<% end %>
+
+
+<script>
+    $('.chosen-mselect').chosen(
+        {
+
+          allow_single_deselect: true,
+          no_results_text: 'No hay resultados',
+          width: '350px;',
+          placeholder_text_single: "Seleccione una opción",
+          placeholder_text_multiple: "Seleccione una varias opciones"
+
+        });
+      $('.chosen-select').chosen(
+        {
+
+          allow_single_deselect: true,
+          no_results_text: 'No hay resultados',
+          width: '200px;',
+          placeholder_text_single: "Seleccione una opción",
+          placeholder_text_multiple: "Seleccione una varias opciones"
+
+        });
+</script>
