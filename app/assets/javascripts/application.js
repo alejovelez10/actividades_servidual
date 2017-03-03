@@ -10,11 +10,17 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
-//= require twitter/bootstrap
 //= require chosen-jquery
+//= require jquery_nested_form
+//= require jquery.remotipart
+//= require jquery-ui
 //= require ckeditor-jquery
+//= require image-picker
+//= require config
 //= require turbolinks
 //= require_tree .
 
